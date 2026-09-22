@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  overscroll-behavior: none;
+}
+
+body {
+  background: #080a18;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateX(18px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.toast-in {
+  animation: toast-in 0.28s ease-out;
+}
+
+@layer components {
+  .btn-primary {
+    @apply rounded-2xl bg-gradient-to-r from-cyan-400 to-violet-500 px-8 py-3 text-lg font-black tracking-wide text-[#080a18] shadow-lg shadow-cyan-500/30 transition active:scale-95 hover:brightness-110;
+  }
+  .btn-ghost {
+    @apply rounded-2xl border border-white/20 bg-white/5 px-8 py-3 text-base font-bold text-white transition active:scale-95 hover:bg-white/10;
+  }
+  .save-input {
+    @apply w-full rounded-2xl border border-white/15 bg-black/40 px-4 py-3 text-center font-mono text-base font-bold tracking-[0.18em] text-cyan-200 outline-none placeholder:text-white/25 focus:border-cyan-400/60;
+  }
+}
